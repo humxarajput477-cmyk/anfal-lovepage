@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For My Madam Jee ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f0f0f,#1a1a1a,#2a0000);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* PASSWORD SCREEN */
+
+#loginPage{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.login-box{
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    width:90%;
+    max-width:400px;
+    backdrop-filter:blur(10px);
+    border:2px solid #ff4d6d;
+}
+
+.login-box h1{
+    margin-bottom:20px;
+    color:#ff4d6d;
+}
+
+.login-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    margin-top:15px;
+    outline:none;
+    font-size:1rem;
+}
+
+.login-box button{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+.error{
+    margin-top:10px;
+    color:red;
+}
+
+/* Floating Hearts */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    top:0;
+    left:0;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    animation:float 8s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(0);
+    }
+    100%{
+        transform:translateY(-10vh) scale(1.5);
+    }
+}
+
+/* Navbar */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff4d6d;
+}
+
+/* Sections */
+
+section{
+    min-height:100vh;
+    padding:120px 10%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+/* Hero */
+
+.hero h1{
+    font-size:4rem;
+    color:#ff4d6d;
+    text-shadow:0 0 20px red;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:1.3rem;
+    max-width:700px;
+}
+
+.typing{
+    border-right:3px solid #fff;
+    white-space:nowrap;
+    overflow:hidden;
+    width:0;
+    animation:typing 5s steps(40,end) forwards,
+              blink 1s infinite;
+}
+
+@keyframes typing{
+    from{width:0}
+    to{width:100%}
+}
+
+@keyframes blink{
+    50%{border-color:transparent}
+}
+
+/* Button */
+
+.btn{
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #ff4d6d;
+}
+
+/* Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    width:100%;
+    margin-top:40px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:20px;
+    transition:0.5s;
+    border:3px solid rgba(255,255,255,0.1);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    width:100%;
+    margin-top:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(12px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px rgba(255,77,109,0.5);
+}
+
+/* Timeline */
+
+.timeline{
+    width:100%;
+    max-width:900px;
+    margin-top:40px;
+}
+
+.timeline-item{
+    background:rgba(255,255,255,0.08);
+    margin:25px 0;
+    padding:20px;
+    border-left:4px solid #ff4d6d;
+    border-radius:15px;
+    text-align:left;
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.timeline-item img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    border:3px solid rgba(255,255,255,0.2);
+}
+
+/* Music */
+
+audio{
+    margin-top:30px;
+    width:300px;
+}
+
+/* Surprise */
+
+.popup{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#111;
+    padding:40px;
+    border-radius:20px;
+    border:2px solid #ff4d6d;
+    z-index:9999;
+    text-align:center;
+    box-shadow:0 0 30px #ff4d6d;
+}
+
+.popup h2{
+    margin-bottom:15px;
+    color:#ff4d6d;
+}
+
+/* Footer */
+
+footer{
+    padding:30px;
+    text-align:center;
+    background:black;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.timeline-item{
+    flex-direction:column;
+    text-align:center;
+}
+
+.timeline-item img{
+    width:100%;
+    height:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD PAGE -->
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <h1>Enter Password ❤️</h1>
+
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="checkPassword()">
+            Enter
+        </button>
+
+        <p class="error" id="error"></p>
+
+    </div>
+
+</div>
+
+<!-- Floating Hearts -->
+<div class="hearts" id="hearts"></div>
+
+<!-- Navbar -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#gallery">Memories</a>
+    <a href="#love">Love Letter</a>
+    <a href="#reasons">Reasons</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#music">Music</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+
+    <h1>For My everything ❤️</h1>
+
+    <p class="typing">
+        Kindly first click on the music icon and play it ❤️
+
+    </p>
+
+    <button class="btn" onclick="showPopup()">
+        Click Here madam jee ❤️
+    </button>
+
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+
+    <h1>Our Memories 📸</h1>
+
+    <div class="gallery">
+
+        <img src="adf.jpeg">
+        <img src="cvb.jpeg">
+        <img src="qwe.jpeg">
+        <img src="uyi.jpeg">
+
+    </div>
+
+</section>
+
+<!-- Love Letter -->
+<section id="love">
+
+    <h1>My Love Letter 💌</h1>
+
+    <p style="max-width:800px; margin-top:30px; line-height:2;">
+
+        From the moment you entered my life, everything became brighter, mere pyari Anfal. You are not just a part of my life — you are meri zindagi, mera sakoon, the peace my heart always searched for. ❤️
+
+Your smile heals my soul, your voice comforts my heart, and your love gives meaning to my existence. Every moment with you feels like a beautiful blessing from Allah. I don’t need a perfect world anymore, because having you beside me already makes my world feel complete and perfect.
+
+And if I ever hurt you, disappointed you, or made you feel unloved, then I’m truly sorry from the deepest part of my heart. 🥺 You mean more to me than words can ever explain, and losing your smile is the last thing I would ever want. Please forgive me, mere pyari Anfal, because my heart finds its home and peace only in you. 💕
+
+        <br><br>
+        I promise to love you in every situation,
+        every storm, every happiness, and every lifetime.
+        You are my heart, my peace, and my forever.
+
+    </p>
+
+</section>
+
+<!-- Reasons -->
+<section id="reasons">
+
+    <h1>Why I Love You ❤️</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Your Smile 😊</h2>
+            <p>Your smile heals every bad day.</p>
+        </div>
+
+        <div class="card">
+            <h2>Your Care 💖</h2>
+            <p>You make me feel loved and important.</p>
+        </div>
+
+        <div class="card">
+            <h2>Your Voice 🎵</h2>
+            <p>Your voice is my favorite sound.</p>
+        </div>
+
+        <div class="card">
+            <h2>Your Presence 🌎</h2>
+            <p>You make my world complete.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Timeline -->
+<section id="timeline">
+
+    <h1>Our Story 🕰️</h1>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <img src="firstmeet.jpeg">
+
+            <div>
+                <h3>First Meeting ❤️</h3>
+                <p>The day my life changed forever.</p>
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <img src="firstconvo.jpeg">
+
+            <div>
+                <h3>First Conversation 💬</h3>
+                <p>Every word became special.</p>
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <img src="memory.jpeg">
+
+            <div>
+                <h3>First Memory 📸</h3>
+                <p>A moment I never want to forget.</p>
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <img src="ha.jpeg">
+
+            <div>
+                <h3>Forever ♾️</h3>
+                <p>The journey I want till my last breath.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Music -->
+<section id="music">
+
+    <h1>Our Song 🎶</h1>
+
+    <p style="margin-top:20px;">
+        Play this while reading ❤️
+    </p>
+
+    <audio controls>
+        <source src="Murtaza Qizilbash  Hum  Official Audio.mp3.mpeg" type="audio/mpeg">
+    </audio>
+
+</section>
+
+<!-- Final Section -->
+<section>
+
+    <h1>You Are My Forever ❤️</h1>
+
+    <p style="margin-top:25px; max-width:700px; line-height:2;">
+        No matter where life takes us,
+        my heart will always belong to you.
+    </p>
+
+</section>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+
+    <h2>I Love You ❤️</h2>
+
+    <p>
+        And I’m truly sorry when I  hurt you, disappointed you, or made you feel anything less than special. That was never my intention. You are the most beautiful part of my life, a precious gift that Allah blessed me with, and I never want to lose your smile or your trust. Please forgive me. 🥺💕
+    </p>
+
+    <button class="btn" onclick="closePopup()">
+        Close
+    </button>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    Made With Endless Love, by your's hamza ❤️
+</footer>
+
+<script>
+
+/* PASSWORD */
+
+const correctPassword = "anfalhamza";
+
+function checkPassword(){
+
+    const password = document.getElementById("password").value;
+
+    if(password === correctPassword){
+
+        document.getElementById("loginPage").style.display = "none";
+
+    }else{
+
+        document.getElementById("error").innerText = "Wrong Password ❤️";
+    }
+}
+
+/* Hearts */
+
+const heartsContainer = document.getElementById("hearts");
+
+for(let i=0;i<40;i++){
+
+    let heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize = Math.random()*20 + 15 + "px";
+
+    heart.style.animationDuration = Math.random()*5 + 5 + "s";
+
+    heartsContainer.appendChild(heart);
+}
+
+/* Popup */
+
+function showPopup(){
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
